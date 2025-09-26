@@ -50,7 +50,10 @@
 }
 
 .play-button,
-.continue-button {
+.quick-play-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 15px 30px;
   border: none;
   border-radius: 10px;
@@ -60,11 +63,12 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  text-decoration: none;
+  color: white;
 }
 
 .play-button {
   background: linear-gradient(45deg, #4CAF50, #45a049);
-  color: white;
   box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
@@ -73,19 +77,12 @@
   box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
-.continue-button {
+.quick-play-button {
   background: linear-gradient(45deg, #ff9800, #f57c00);
-  color: white;
   box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
 }
 
-.continue-button:disabled {
-  background: #666;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.continue-button:hover:not(:disabled) {
+.quick-play-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ScoresList from '../components/ScoresList';
 import './Home.css';
 
@@ -12,12 +13,12 @@ const Home = () => {
 
       <main className="home-main">
         <section className="game-actions">
-          <button className="play-button">
-            Start New Game
-          </button>
-          <button className="continue-button" disabled>
-            Continue Game
-          </button>
+          <Link to="/select" className="play-button">
+            🎮 Start New Game
+          </Link>
+          <Link to="/game/Easy" className="quick-play-button">
+            ⚡ Quick Play (Easy)
+          </Link>
         </section>
 
         <section className="scores-section">

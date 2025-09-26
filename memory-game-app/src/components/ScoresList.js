@@ -4,54 +4,46 @@ import './ScoresList.css';
 const ScoresList = () => {
   const [scores, setScores] = useState([]);
 
-  // Mock data for previous scores - in a real app, this would come from localStorage or an API
+  // Load scores from localStorage and provide fallback mock data
   useEffect(() => {
-    const mockScores = [
-      {
-        id: 1,
-        score: 2450,
-        moves: 24,
-        time: '02:15',
-        difficulty: 'Easy',
-        date: '2024-03-20'
-      },
-      {
-        id: 2,
-        score: 3200,
-        moves: 32,
-        time: '03:42',
-        difficulty: 'Medium',
-        date: '2024-03-19'
-      },
-      {
-        id: 3,
-        score: 1890,
-        moves: 18,
-        time: '01:58',
-        difficulty: 'Easy',
-        date: '2024-03-18'
-      },
-      {
-        id: 4,
-        score: 4150,
-        moves: 41,
-        time: '05:20',
-        difficulty: 'Hard',
-        date: '2024-03-17'
-      },
-      {
-        id: 5,
-        score: 2750,
-        moves: 28,
-        time: '02:55',
-        difficulty: 'Medium',
-        date: '2024-03-16'
-      }
-    ];
+    const savedScores = JSON.parse(localStorage.getItem('memoryGameScores') || '[]');
     
-    // Sort by score (highest first)
-    const sortedScores = mockScores.sort((a, b) => b.score - a.score);
-    setScores(sortedScores);
+    // If no saved scores, provide some demo data
+    if (savedScores.length === 0) {
+      const mockScores = [
+        {
+          id: 1,
+          score: 2450,
+          moves: 24,
+          time: '02:15',
+          difficulty: 'Easy',
+          date: '2024-03-20'
+        },
+        {
+          id: 2,
+          score: 3200,
+          moves: 32,
+          time: '03:42',
+          difficulty: 'Medium',
+          date: '2024-03-19'
+        },
+        {
+          id: 3,
+          score: 1890,
+          moves: 18,
+          time: '01:58',
+          difficulty: 'Easy',
+          date: '2024-03-18'
+        }
+      ];
+      
+      // Save mock data to localStorage for demo purposes
+      localStorage.setItem('memoryGameScores', JSON.stringify(mockScores));
+      setScores(mockScores.sort((a, b) => b.score - a.score));
+    } else {
+      // Use real saved scores
+      setScores(savedScores.sort((a, b) => b.score - a.score));
+    }
   }, []);
 
   const getDifficultyClass = (difficulty) => {

@@ -1,0 +1,223 @@
+/* Card.css */
+.card {
+  width: 100%;
+  height: 120px;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card:hover:not(.disabled) {
+  transform: scale(1.05);
+}
+
+.card.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Front of card (hidden) */
+.card-front {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.card-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3;
+}
+
+.pattern-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 50%;
+}
+
+.pattern-dot:nth-child(1) {
+  top: 15px;
+  left: 15px;
+}
+
+.pattern-dot:nth-child(2) {
+  top: 15px;
+  right: 15px;
+}
+
+.pattern-dot:nth-child(3) {
+  bottom: 15px;
+  left: 15px;
+}
+
+.pattern-dot:nth-child(4) {
+  bottom: 15px;
+  right: 15px;
+}
+
+.card-logo {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+/* Back of card (visible when flipped) */
+.card-back {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  transform: rotateY(180deg);
+  border: 2px solid #FFD700;
+}
+
+.card-emoji {
+  font-size: 3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Matched card styling */
+.card.matched .card-back {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  border-color: #4CAF50;
+  animation: matchGlow 1s ease;
+}
+
+@keyframes matchGlow {
+  0% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 35px rgba(76, 175, 80, 0.6);
+    transform: scale(1.05);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: scale(1);
+  }
+}
+
+.card.matched .card-emoji {
+  animation: celebrate 0.8s ease;
+}
+
+@keyframes celebrate {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.2) rotate(-5deg);
+  }
+  75% {
+    transform: scale(1.2) rotate(5deg);
+  }
+}
+
+/* Hover effects */
+.card:hover:not(.flipped):not(.matched):not(.disabled) .card-front {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  transform: translateY(-2px);
+}
+
+.card:hover:not(.flipped):not(.matched):not(.disabled) {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Active/clicking animation */
+.card:active:not(.disabled) {
+  transform: scale(0.95);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card {
+    height: 100px;
+  }
+
+  .card-emoji {
+    font-size: 2.5rem;
+  }
+
+  .card-logo {
+    font-size: 1.5rem;
+  }
+
+  .pattern-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .pattern-dot:nth-child(1),
+  .pattern-dot:nth-child(2) {
+    top: 10px;
+  }
+
+  .pattern-dot:nth-child(3),
+  .pattern-dot:nth-child(4) {
+    bottom: 10px;
+  }
+
+  .pattern-dot:nth-child(1),
+  .pattern-dot:nth-child(3) {
+    left: 10px;
+  }
+
+  .pattern-dot:nth-child(2),
+  .pattern-dot:nth-child(4) {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    height: 90px;
+  }
+
+  .card-emoji {
+    font-size: 2rem;
+  }
+
+  .card-logo {
+    font-size: 1.2rem;
+  }
+}

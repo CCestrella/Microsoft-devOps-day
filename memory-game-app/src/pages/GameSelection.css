@@ -1,0 +1,240 @@
+/* GameSelection.css */
+.game-selection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.selection-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 30px 0;
+}
+
+.selection-header h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.selection-header p {
+  font-size: 1.2rem;
+  margin: 15px 0 0 0;
+  opacity: 0.9;
+}
+
+.difficulty-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.difficulty-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 40px 30px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.difficulty-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.difficulty-card:hover::before {
+  animation: shine 0.7s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.difficulty-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.difficulty-card.green:hover {
+  border-color: #4CAF50;
+  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.4);
+}
+
+.difficulty-card.orange:hover {
+  border-color: #FF9800;
+  box-shadow: 0 20px 40px rgba(255, 152, 0, 0.4);
+}
+
+.difficulty-card.red:hover {
+  border-color: #F44336;
+  box-shadow: 0 20px 40px rgba(244, 67, 54, 0.4);
+}
+
+.difficulty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.difficulty-card h2 {
+  font-size: 2rem;
+  margin: 0 0 15px 0;
+  color: inherit;
+}
+
+.difficulty-description {
+  font-size: 1.1rem;
+  margin: 0 0 20px 0;
+  opacity: 0.9;
+}
+
+.difficulty-details {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.play-arrow {
+  font-size: 1.5rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: translateX(-10px);
+}
+
+.difficulty-card:hover .play-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.selection-footer {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Color variants */
+.difficulty-card.green {
+  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(139, 195, 74, 0.3));
+}
+
+.difficulty-card.orange {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 193, 7, 0.3));
+}
+
+.difficulty-card.red {
+  background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(233, 30, 99, 0.3));
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .game-selection {
+    padding: 10px;
+  }
+
+  .selection-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .difficulty-cards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .difficulty-card {
+    padding: 30px 20px;
+  }
+
+  .difficulty-icon {
+    font-size: 3rem;
+  }
+
+  .difficulty-card h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .selection-header h1 {
+    font-size: 2rem;
+  }
+
+  .difficulty-card {
+    padding: 25px 15px;
+  }
+
+  .difficulty-icon {
+    font-size: 2.5rem;
+  }
+
+  .difficulty-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .back-button {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
