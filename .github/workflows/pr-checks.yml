@@ -1,0 +1,87 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  pr-validation:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: PR Title Check
+      uses: amannn/action-semantic-pull-request@v5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        types: |
+          feat
+          fix
+          docs
+          style
+          refactor
+          perf
+          test
+          build
+          ci
+          chore
+        requireScope: false
+    
+    - name: Check for sensitive files
+      run: |
+        if find . -name "*.key" -o -name "*.pem" -o -name "*.p12" -o -name "*.pfx" -o -name "*.cer" -o -name ".env" | grep -v node_modules | head -1; then
+          echo "Sensitive files detected!"
+          exit 1
+        fi
+    
+    - name: Validate project structure
+      run: |
+        if [ ! -d "api" ] || [ ! -d "frontend" ]; then
+          echo "Required project structure not found!"
+          exit 1
+        fi
+        echo "Project structure validated successfully"
+    
+  backend-checks:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.changed_files, 'api/')
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+    
+    - name: Build and Test Backend
+      working-directory: ./api
+      run: |
+        dotnet restore MemoryGameApi/MemoryGameApi.csproj
+        dotnet build MemoryGameApi/MemoryGameApi.csproj --no-restore
+        dotnet test MemoryGameApi.Tests/MemoryGameApi.Tests.csproj --no-build
+  
+  frontend-checks:
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.changed_files, 'frontend/')
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: frontend/memory-game/package-lock.json
+    
+    - name: Build and Test Frontend
+      working-directory: ./frontend/memory-game
+      run: |
+        npm ci
+        npm run build
+        npm test -- --watchAll=false
+      env:
+        CI: true
