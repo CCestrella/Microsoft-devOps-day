@@ -1,0 +1,131 @@
+/* Home.css */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px 0;
+}
+
+.game-title {
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.game-subtitle {
+  font-size: 1.2rem;
+  margin: 15px 0 0 0;
+  opacity: 0.9;
+}
+
+.home-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.game-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.play-button,
+.continue-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.play-button {
+  background: linear-gradient(45deg, #4CAF50, #45a049);
+  color: white;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.continue-button {
+  background: linear-gradient(45deg, #ff9800, #f57c00);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.continue-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.continue-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+.scores-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  color: #333;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.scores-section h2 {
+  margin: 0 0 25px 0;
+  color: #2c3e50;
+  font-size: 1.8rem;
+  text-align: center;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 15px;
+}
+
+.home-footer {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-main {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .game-title {
+    font-size: 2rem;
+  }
+  
+  .home-container {
+    padding: 10px;
+  }
+}
