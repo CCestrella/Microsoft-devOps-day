@@ -11,8 +11,13 @@ jest.mock('./services/GameService', () => {
   };
 });
 
-test('renders memory game app', () => {
+test('renders memory game app with error handling', () => {
   render(<App />);
-  const loadingElement = screen.getByText(/loading/i);
-  expect(loadingElement).toBeInTheDocument();
+  
+  // Should render the error state when API fails
+  const errorElement = screen.getByText(/failed to load game/i);
+  expect(errorElement).toBeInTheDocument();
+  
+  const tryAgainButton = screen.getByText(/try again/i);
+  expect(tryAgainButton).toBeInTheDocument();
 });
