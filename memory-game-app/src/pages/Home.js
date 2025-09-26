@@ -7,17 +7,17 @@ const Home = () => {
   return (
     <div className="home-container">
       <header className="home-header">
-        <h1 className="game-title">🧠 Memory Game</h1>
-        <p className="game-subtitle">Test your memory skills and beat your previous scores!</p>
+        <h1 className="game-title">🎀 Hello Kitty Memory Game</h1>
+        <p className="game-subtitle">Join Hello Kitty for a cute memory adventure! Match the adorable pairs!</p>
       </header>
 
       <main className="home-main">
         <section className="game-actions">
           <Link to="/select" className="play-button">
-            🎮 Start New Game
+            � Start Cute Adventure
           </Link>
           <Link to="/game/Easy" className="quick-play-button">
-            ⚡ Quick Play (Easy)
+            💕 Quick Play (Easy)
           </Link>
         </section>
 
@@ -28,7 +28,7 @@ const Home = () => {
       </main>
 
       <footer className="home-footer">
-        <p>Challenge yourself and improve your memory!</p>
+        <p>Have a purr-fect time with Hello Kitty! 🐱💕</p>
       </footer>
     </div>
   );

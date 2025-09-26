@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 50%, #FF69B4 100%);
   min-height: 100vh;
   color: white;
 }
@@ -90,18 +90,18 @@
 }
 
 .difficulty-card.green:hover {
-  border-color: #4CAF50;
-  box-shadow: 0 20px 40px rgba(76, 175, 80, 0.4);
+  border-color: #FF69B4;
+  box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4);
 }
 
 .difficulty-card.orange:hover {
-  border-color: #FF9800;
-  box-shadow: 0 20px 40px rgba(255, 152, 0, 0.4);
+  border-color: #FF1493;
+  box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
 }
 
 .difficulty-card.red:hover {
-  border-color: #F44336;
-  box-shadow: 0 20px 40px rgba(244, 67, 54, 0.4);
+  border-color: #DC143C;
+  box-shadow: 0 20px 40px rgba(220, 20, 60, 0.4);
 }
 
 .difficulty-icon {
@@ -175,17 +175,17 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Color variants */
+/* Color variants - Hello Kitty themed */
 .difficulty-card.green {
-  background: linear-gradient(135deg, rgba(76, 175, 80, 0.3), rgba(139, 195, 74, 0.3));
+  background: linear-gradient(135deg, rgba(255, 182, 193, 0.4), rgba(255, 192, 203, 0.4));
 }
 
 .difficulty-card.orange {
-  background: linear-gradient(135deg, rgba(255, 152, 0, 0.3), rgba(255, 193, 7, 0.3));
+  background: linear-gradient(135deg, rgba(255, 105, 180, 0.4), rgba(255, 20, 147, 0.4));
 }
 
 .difficulty-card.red {
-  background: linear-gradient(135deg, rgba(244, 67, 54, 0.3), rgba(233, 30, 99, 0.3));
+  background: linear-gradient(135deg, rgba(220, 20, 60, 0.4), rgba(199, 21, 133, 0.4));
 }
 
 /* Responsive Design */

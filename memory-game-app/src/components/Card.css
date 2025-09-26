@@ -45,7 +45,7 @@
 
 /* Front of card (hidden) */
 .card-front {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%);
   position: relative;
   overflow: hidden;
 }
@@ -63,8 +63,9 @@
   position: absolute;
   width: 8px;
   height: 8px;
-  background: white;
+  background: #FFE4E1;
   border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 20, 147, 0.3);
 }
 
 .pattern-dot:nth-child(1) {
@@ -92,13 +93,23 @@
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   z-index: 1;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(5deg);
+  }
 }
 
 /* Back of card (visible when flipped) */
 .card-back {
-  background: linear-gradient(135deg, #FFD700, #FFA500);
+  background: linear-gradient(135deg, #FFF0F5, #FFE4E1);
   transform: rotateY(180deg);
-  border: 2px solid #FFD700;
+  border: 3px solid #FF69B4;
 }
 
 .card-emoji {
@@ -118,8 +129,8 @@
 
 /* Matched card styling */
 .card.matched .card-back {
-  background: linear-gradient(135deg, #4CAF50, #45a049);
-  border-color: #4CAF50;
+  background: linear-gradient(135deg, #FF1493, #FF69B4);
+  border-color: #FF1493;
   animation: matchGlow 1s ease;
 }
 

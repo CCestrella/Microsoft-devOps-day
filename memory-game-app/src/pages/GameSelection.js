@@ -9,29 +9,29 @@ const GameSelection = () => {
       pairs: 6,
       description: '12 cards (6 pairs)',
       color: 'green',
-      icon: '😊'
+      icon: '🌸'
     },
     {
       name: 'Medium', 
       pairs: 8,
       description: '16 cards (8 pairs)',
       color: 'orange',
-      icon: '🤔'
+      icon: '🎀'
     },
     {
       name: 'Hard',
       pairs: 10, 
       description: '20 cards (10 pairs)',
       color: 'red',
-      icon: '🔥'
+      icon: '�'
     }
   ];
 
   return (
     <div className="game-selection">
       <div className="selection-header">
-        <h1>Choose Your Challenge</h1>
-        <p>Select a difficulty level to start playing</p>
+        <h1>🎀 Choose Your Adventure Level</h1>
+        <p>Pick your perfect Hello Kitty challenge! 💕</p>
       </div>
 
       <div className="difficulty-cards">
@@ -47,7 +47,7 @@ const GameSelection = () => {
             <h2>{difficulty.name}</h2>
             <p className="difficulty-description">{difficulty.description}</p>
             <div className="difficulty-details">
-              <span>Best for {difficulty.name === 'Easy' ? 'beginners' : difficulty.name === 'Medium' ? 'casual players' : 'experts'}</span>
+              <span>Perfect for {difficulty.name === 'Easy' ? 'Hello Kitty beginners' : difficulty.name === 'Medium' ? 'cute adventurers' : 'memory masters'}</span>
             </div>
             <div className="play-arrow">▶️</div>
           </Link>

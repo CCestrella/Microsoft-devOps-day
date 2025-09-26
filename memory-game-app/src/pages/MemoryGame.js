@@ -14,8 +14,8 @@ const MemoryGame = ({ onGameComplete }) => {
 
   const { pairs, timeBonus } = gameConfig[difficulty];
 
-  // Emoji sets for cards
-  const cardEmojis = ['🌟', '🎯', '🚀', '🎨', '🏆', '💎', '🎪', '🎭', '🎸', '🎲', '🎊', '🎁', '🌈', '⚡', '🔥'];
+  // Hello Kitty themed emojis for cards
+  const cardEmojis = ['�', '💕', '🌸', '�', '🦄', '🍓', '🧸', '�', '�', '�', '⭐', '💖', '�', '🦋', '🍭'];
 
   // Game state
   const [cards, setCards] = useState([]);
@@ -185,10 +185,10 @@ const MemoryGame = ({ onGameComplete }) => {
     <div className="memory-game">
       <div className="game-nav">
         <Link to="/" className="nav-button home-button">
-          🏠 Home
+          🏠 Kitty Home
         </Link>
         <Link to="/select" className="nav-button select-button">
-          🎯 Change Difficulty
+          � Change Level
         </Link>
       </div>
       
@@ -220,13 +220,13 @@ const MemoryGame = ({ onGameComplete }) => {
             onClick={togglePause}
             disabled={gameStatus === 'completed'}
           >
-            {gameStatus === 'paused' ? '▶️ Resume' : '⏸️ Pause'}
+            {gameStatus === 'paused' ? '▶️ Continue' : '⏸️ Pause'}
           </button>
           <button 
             className="control-button restart-button" 
             onClick={restartGame}
           >
-            🔄 Restart
+            🎀 New Game
           </button>
         </div>
       </div>
@@ -234,10 +234,10 @@ const MemoryGame = ({ onGameComplete }) => {
       {gameStatus === 'paused' && (
         <div className="game-overlay">
           <div className="pause-message">
-            <h2>Game Paused</h2>
-            <p>Click Resume to continue playing</p>
+            <h2>🎀 Game Paused</h2>
+            <p>Hello Kitty is waiting for you! Click to continue 💕</p>
             <button className="resume-large-button" onClick={togglePause}>
-              ▶️ Resume Game
+              ▶️ Continue Adventure
             </button>
           </div>
         </div>
@@ -246,8 +246,8 @@ const MemoryGame = ({ onGameComplete }) => {
       {showCelebration && (
         <div className="celebration-overlay">
           <div className="celebration-content">
-            <h1>🎉 Congratulations! 🎉</h1>
-            <p>You completed the {difficulty} level!</p>
+            <h1>� Kawaii! You Did It! �</h1>
+            <p>Hello Kitty is so proud! You completed the {difficulty} level! 💕</p>
             <div className="final-stats">
               <div>Final Score: <strong>{score}</strong></div>
               <div>Moves: <strong>{moves}</strong></div>

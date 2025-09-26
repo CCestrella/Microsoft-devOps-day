@@ -4,7 +4,7 @@
   margin: 0 auto;
   padding: 20px;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 50%, #FF69B4 100%);
   min-height: 100vh;
   color: white;
 }
@@ -19,10 +19,20 @@
   font-size: 3rem;
   margin: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  background: linear-gradient(45deg, #FFD700, #FFA500);
+  background: linear-gradient(45deg, #FF69B4, #FF1493);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: kittyFloat 3s ease-in-out infinite;
+}
+
+@keyframes kittyFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .game-subtitle {
@@ -73,18 +83,25 @@
 }
 
 .play-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+  animation: buttonBounce 0.6s ease;
+}
+
+@keyframes buttonBounce {
+  0%, 100% { transform: translateY(-2px) scale(1.05); }
+  50% { transform: translateY(-5px) scale(1.1); }
 }
 
 .quick-play-button {
-  background: linear-gradient(45deg, #ff9800, #f57c00);
-  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+  background: linear-gradient(45deg, #FF69B4, #FF1493);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
 }
 
 .quick-play-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+  animation: buttonBounce 0.6s ease;
 }
 
 .scores-section {
@@ -100,7 +117,7 @@
   color: #2c3e50;
   font-size: 1.8rem;
   text-align: center;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid #FF69B4;
   padding-bottom: 15px;
 }
 

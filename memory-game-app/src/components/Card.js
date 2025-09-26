@@ -21,7 +21,7 @@ const Card = ({ card, onClick, disabled }) => {
             <div className="pattern-dot"></div>
             <div className="pattern-dot"></div>
           </div>
-          <div className="card-logo">🧠</div>
+          <div className="card-logo">🎀</div>
         </div>
         <div className="card-back">
           <div className="card-emoji">
